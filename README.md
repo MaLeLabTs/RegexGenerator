@@ -1,6 +1,7 @@
 # RegexGenerator
 
 This project contains the source code of a tool for generating regular expressions for text extraction:
+
 1. automatically,
 2. based only on examples of the desired behavior,
 3. without any external hint about how the target regex should look like.
