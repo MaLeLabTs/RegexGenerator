@@ -15,7 +15,7 @@ The provided engine is a developement release(1) that implements the algorithms 
 * Bartoli, Davanzo, De Lorenzo, Medvet, Automatic Synthesis of Regular Expressions from Examples, IEEE Computer, 2014
 * Bartoli, De Lorenzo, Medvet, Tarlao, Learning Text Patterns using Separate-and-Conquer Genetic Programming, 18th European Conference on Genetic Programming (EuroGP), 2015, Copenhagen (Denmark)
 
-More details about the project can be found on the [Machine Learning Lab news pages](http://machinelearning.inginf.units.it/news/newregexgeneratortoolonline).
+More details about the project can be found on [Machine Learning Lab news pages](http://machinelearning.inginf.units.it/news/newregexgeneratortoolonline).
 
 We hope that you find this code instructive and useful for your research or study activity.
 
