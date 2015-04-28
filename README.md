@@ -8,14 +8,14 @@ This project contains the source code of a tool for generating regular expressio
 
 An online, interactive version of this engine is accessible at: [http://regex.inginf.units.it/](http://regex.inginf.units.it/)
 
-RegexGenerator was developed at the [http://machinelearning.inginf.units.it] (Machine Learning Lab, University of Trieste, Italy).
+RegexGenerator was developed at the [Machine Learning Lab, University of Trieste, Italy] (http://machinelearning.inginf.units.it).
 
 The provided engine is a developement release(1) that implements the algorithms published in our articles (2):
 
 * Bartoli, Davanzo, De Lorenzo, Medvet, Automatic Synthesis of Regular Expressions from Examples, IEEE Computer, 2014
 * Bartoli, De Lorenzo, Medvet, Tarlao, Learning Text Patterns using Separate-and-Conquer Genetic Programming, 18th European Conference on Genetic Programming (EuroGP), 2015, Copenhagen (Denmark)
 
-More details about the project can be found on the [http://machinelearning.inginf.units.it/news/newregexgeneratortoolonline](Machine Learning Lab news pages).
+More details about the project can be found on the [Machine Learning Lab news pages](http://machinelearning.inginf.units.it/news/newregexgeneratortoolonline).
 
 We hope that you find this code instructive and useful for your research or study activity.
 
