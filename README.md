@@ -12,7 +12,7 @@ RegexGenerator was developed at the [Machine Learning Lab, University of Trieste
 
 The provided engine is a developement release(1) that implements the algorithms published in our articles (2):
 
-* Bartoli, Davanzo, De Lorenzo, Medvet, Automatic Synthesis of Regular Expressions from Examples, IEEE Computer, 2014
+* Bartoli, Davanzo, De Lorenzo, Medvet, Sorio, Automatic Synthesis of Regular Expressions from Examples, IEEE Computer, 2014
 * Bartoli, De Lorenzo, Medvet, Tarlao, Learning Text Patterns using Separate-and-Conquer Genetic Programming, 18th European Conference on Genetic Programming (EuroGP), 2015, Copenhagen (Denmark)
 
 More details about the project can be found on [Machine Learning Lab news pages](http://machinelearning.inginf.units.it/news/newregexgeneratortoolonline).
