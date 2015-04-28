@@ -40,18 +40,17 @@ Machine Learning Lab, [Twitter account](https://twitter.com/MaleLabTs)
 
 (2) BibTeX format:
 
-@article{bartoli2013automatic,
-  title={Automatic synthesis of regular expressions from examples},
-  author={Bartoli, Alberto and Davanzo, Giorgio and De Lorenzo, Andrea and Medvet, Eric and Sorio, Enrico},
-  year={2013},
-  publisher={IEEE}
-}
-
-@incollection{bartoli2015learning,
-  title={Learning Text Patterns Using Separate-and-Conquer Genetic Programming},
-  author={Bartoli, Alberto and De Lorenzo, Andrea and Medvet, Eric and Tarlao, Fabiano},
-  booktitle={Genetic Programming},
-  pages={16--27},
-  year={2015},
-  publisher={Springer}
-}
+    @article{bartoli2013automatic,
+      title={Automatic synthesis of regular expressions from examples},
+      author={Bartoli, Alberto and Davanzo, Giorgio and De Lorenzo, Andrea and Medvet, Eric and Sorio, Enrico},
+      year={2013},
+      publisher={IEEE}
+    }
+    @incollection{bartoli2015learning,
+      title={Learning Text Patterns Using Separate-and-Conquer Genetic Programming},
+      author={Bartoli, Alberto and De Lorenzo, Andrea and Medvet, Eric and Tarlao, Fabiano},
+      booktitle={Genetic Programming},
+      pages={16--27},
+      year={2015},
+      publisher={Springer}
+    }
