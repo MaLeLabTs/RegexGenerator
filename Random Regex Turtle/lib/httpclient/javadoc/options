@@ -1,0 +1,31 @@
+-classpath
+'/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/target/classes:/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/httpclient/target/classes:/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/httpmime/target/classes:/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/httpclient-cache/target/classes:/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/httpclient-osgi/target/classes:/home/oleg/.m2/repository/org/slf4j/slf4j-api/1.5.11/slf4j-api-1.5.11.jar:/home/oleg/.m2/repository/org/apache/httpcomponents/httpclient-cache/4.1.3/httpclient-cache-4.1.3.jar:/home/oleg/.m2/repository/org/apache/httpcomponents/httpcore/4.1.4/httpcore-4.1.4.jar:/home/oleg/.m2/repository/spy/memcached/2.5/memcached-2.5.jar:/home/oleg/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/home/oleg/.m2/repository/org/apache/httpcomponents/httpmime/4.1.3/httpmime-4.1.3.jar:/home/oleg/.m2/repository/net/sf/ehcache/ehcache-core/2.2.0/ehcache-core-2.2.0.jar:/home/oleg/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar:/home/oleg/.m2/repository/org/slf4j/slf4j-jcl/1.5.11/slf4j-jcl-1.5.11.jar:/home/oleg/.m2/repository/org/apache/httpcomponents/httpclient/4.1.3/httpclient-4.1.3.jar'
+-encoding
+'UTF-8'
+-protected
+-quiet
+-source
+'1.5'
+-sourcepath
+'/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/httpclient/src/main/java:/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/httpmime/src/main/java:/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/httpclient-cache/src/main/java'
+-author
+-bottom
+'Copyright &#169; 1999-2012 <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'HttpComponents Client 4.1.3 API'
+-link
+'http://download.oracle.com/javase/1.5.0/docs/api'
+-link
+'http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs'
+-linkoffline
+'http://download.oracle.com/javase/1.5.0/docs/api' '/home/oleg/src/apache.org/httpcomponents/httpclient-4.1.3-RC1/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'HttpComponents Client 4.1.3 API'

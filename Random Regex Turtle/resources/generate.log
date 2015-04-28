@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2013-12-17T16:54:08</date>
+  <millis>1387295648518</millis>
+  <sequence>0</sequence>
+  <logger>it.units.inginf.rrf.pcreutils.TreeFactory</logger>
+  <level>SEVERE</level>
+  <class>it.units.inginf.rrf.pcreutils.TreeFactory</class>
+  <method>walkTree</method>
+  <thread>1</thread>
+  <message>Type Not Present:   &lt;invalid&gt;</message>
+</record>
+</log>

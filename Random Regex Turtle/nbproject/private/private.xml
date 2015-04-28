@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="Public Release WebRegex 2014">
+            <file>file:/home/fab/NetBeansProjects/Rilascio%20Month%2012/Random%20Regex%20Turtle/src/it/units/inginf/male/strategy/impl/BasicExecutionListener.java</file>
+        </group>
+        <group name="Release WebRegex Month 12"/>
+        <group name="Public release month 12">
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/generations/Ramped.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/configuration/Configuration.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/generations/InitialPopulationBuilder.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/inputs/DataSet.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/utils/BasicTokenizer.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/generations/TokenizedPopulationBuilder.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/evaluators/CachedTreeEvaluator.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/evaluators/CachedEvaluator.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/utils/Pair.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/configuration/DatasetContainer.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/generations/Growth.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/inputs/Context.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/strategy/RunStrategy.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/evaluators/DefaultTreeEvaluator.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/terminalsets/EmptyTerminalSetBuilder.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/generations/Full.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/strategy/impl/MultithreadStrategy.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/utils/BasicStats.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/terminalsets/TokenizedContextTerminalSetBuilder.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/generations/Generation.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/strategy/ExecutionStrategy.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/configuration/Configurator.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/generations/EmptyPopulationBuilder.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/terminalsets/TerminalSetBuilder.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/terminalsets/TokenizedTerminalSetBuilder.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/utils/Range.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/generations/TokenizedContextPopulationBuilder.java</file>
+            <file>file:/home/fab/Desktop/Month%2012%20Release%20GITHUB/Random%20Regex%20Turtle/src/it/units/inginf/male/configuration/EvolutionParameters.java</file>
+        </group>
+    </open-files>
+</project-private>

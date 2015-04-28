@@ -1,0 +1,88 @@
+{
+  "name": "Log/MAC",
+  "description": "",
+  "regexTarget": "((?:[0-9A-Fa-f]{2}[:-]){5}(?:[0-9A-Fa-f]{2}))",
+  "examples": [
+    {
+      "string": "Jan 12 06:26:19: ACCEPT service http from 119.63.193.196 to firewall(pub-nic), prefix: \"none\" (in: eth0 119.63.193.196(5c:0a:5b:63:4a:82):4399 -> 140.105.63.164(50:06:04:92:53:44):80 TCP flags: ****S* len:60 ttl:32)",
+      "match": [
+        {
+          "start": 119,
+          "end": 136
+        },
+        {
+          "start": 161,
+          "end": 178
+        }
+      ],
+      "unmatch": [
+        {
+          "start": 0,
+          "end": 119
+        },
+        {
+          "start": 136,
+          "end": 161
+        },
+        {
+          "start": 178,
+          "end": 215
+        }
+      ]
+    },
+    {
+      "string": "Jan 12 06:26:20: ACCEPT service dns from 140.105.48.16 to firewall(pub-nic-dns), prefix: \"none\" (in: eth0 140.105.48.16(00:21:dd:bc:95:44):4263 -> 140.105.63.158(00:14:31:83:c6:8d):53 UDP len:76 ttl:62)",
+      "match": [
+        {
+          "start": 120,
+          "end": 137
+        },
+        {
+          "start": 162,
+          "end": 179
+        }
+      ],
+      "unmatch": [
+        {
+          "start": 0,
+          "end": 120
+        },
+        {
+          "start": 137,
+          "end": 162
+        },
+        {
+          "start": 179,
+          "end": 202
+        }
+      ]
+    },
+    {
+      "string": "Jan 12 06:27:09: DROP service 68->67(udp) from 216.34.211.83 to 216.34.253.94, prefix: \"spoof iana-0/8\" (in: eth0 213.92.153.78(00:1f:d6:19:0a:80):68 -> 69.43.177.110(00:30:fe:fd:d6:51):67 UDP len:576 ttl:64)",
+      "match": [
+        {
+          "start": 128,
+          "end": 145
+        },
+        {
+          "start": 167,
+          "end": 184
+        }
+      ],
+      "unmatch": [
+        {
+          "start": 0,
+          "end": 128
+        },
+        {
+          "start": 145,
+          "end": 167
+        },
+        {
+          "start": 184,
+          "end": 208
+        }
+      ]
+    }
+  ]
+}

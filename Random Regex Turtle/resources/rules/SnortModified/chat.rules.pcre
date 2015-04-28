@@ -1,0 +1,14 @@
+/^[a-zA-Z]+\s+\x2Ferror-serverdown\x2Ejsp.*\x2E\x2E\x2F/mi
+/^[a-zA-Z]+\s+\x2Findex\x2Ejsp\x3Flogout\x3Dtrue.*\x2E\x2E\x2F/mi
+/^[a-zA-Z]+\s+\x2Flogin\x2Ejsp.*\x2E\x2E\x2F/mi
+/^[a-zA-Z]+\s+\x2Fsetup\x2F\index\x2Ejsp.*\x2E\x2E\x2F/mi
+/^[a-zA-Z]+\s+\x2Fsetup\x2Fsetup-.*\x2E\x2E\x2F/mi
+/^[a-zA-Z]+\s+\x2F\x2Egif.*\x2E\x2E\x2F/mi
+/^[a-zA-Z]+\s+\x2F\x2Epng.*\x2E\x2E\x2F/mi
+/http\x3A\x2F\x2F[^\s]/
+/^\s*JOIN/smi
+/^\s*NICK/smi
+/^\s*NOTICE/smi
+/^\s*PRIVMSG/smi
+/^\s*USERHOST/smi
+/^\x3c(REQIMG|RVWCFG)\x3e/ism
