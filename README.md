@@ -26,9 +26,9 @@ modifications.
 
 The RegexGenerator project is organized in three NetBeans Java subprojects:
 
-* Console Regex Turtle:  cli frontend for the GP engine
+* ConsoleRegexTurtle:  cli frontend for the GP engine
 * MaleRegexTurtle:       provides the regular expression tree representation
-* RandomRegexTurtle:     GP search engine 
+* Random Regex Turtle:     GP search engine 
 
 ## Other Links
 
