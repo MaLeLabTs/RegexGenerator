@@ -42,7 +42,8 @@ Machine Learning Lab, [Twitter account](https://twitter.com/MaleLabTs)
 
     @article{bartoli2013automatic,
       title={Automatic synthesis of regular expressions from examples},
-      author={Bartoli, Alberto and Davanzo, Giorgio and De Lorenzo, Andrea and Medvet, Eric and Sorio, Enrico},
+      author={Bartoli, Alberto and Davanzo, Giorgio and De Lorenzo, Andrea and 
+      Medvet, Eric and Sorio, Enrico},
       year={2013},
       publisher={IEEE}
     }
