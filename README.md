@@ -34,7 +34,7 @@ The RegexGenerator project is organized in three NetBeans Java subprojects:
 
 Machine Learning Lab, [Twitter account](https://twitter.com/MaleLabTs)
 
-RegexGenerator [wiki](https://github.com/MaLeLabTs/RegexGenerator/wiki) with installation walkthru and guide
+RegexGenerator [wiki](https://github.com/MaLeLabTs/RegexGenerator/wiki) with installation walkthrough and guide
 
 ---
 
@@ -51,7 +51,8 @@ RegexGenerator [wiki](https://github.com/MaLeLabTs/RegexGenerator/wiki) with ins
     }
     @incollection{bartoli2015learning,
       title={Learning Text Patterns Using Separate-and-Conquer Genetic Programming},
-      author={Bartoli, Alberto and De Lorenzo, Andrea and Medvet, Eric and Tarlao, Fabiano},
+      author={Bartoli, Alberto and De Lorenzo, Andrea and Medvet, Eric
+      and Tarlao, Fabiano},
       booktitle={Genetic Programming},
       pages={16--27},
       year={2015},
