@@ -29,6 +29,7 @@ import it.units.inginf.male.objective.Objective;
 import it.units.inginf.male.outputs.FinalSolution;
 import it.units.inginf.male.tree.Constant;
 import it.units.inginf.male.tree.Node;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -88,9 +89,11 @@ public class PerformacesObjective implements Objective {
             Example example = dataSetView.getExample(i);
             List<Bounds> expectedMatchMask = example.getMatch();
             List<Bounds> expectedUnmatchMask = example.getUnmatch();
+            List<Bounds> annotatedMask = new ArrayList<>(expectedMatchMask);
+            annotatedMask.addAll(expectedUnmatchMask);
 
             stats.tp = countIdenticalRanges(result, expectedMatchMask);
-            stats.fp = result.size() - stats.tp;
+            stats.fp = Bounds.countRangesThatCollideZone(result, annotatedMask) - stats.tp;
             statsChars.tp = intersection(result, expectedMatchMask);
             statsChars.fp = intersection(result, expectedUnmatchMask);
 
