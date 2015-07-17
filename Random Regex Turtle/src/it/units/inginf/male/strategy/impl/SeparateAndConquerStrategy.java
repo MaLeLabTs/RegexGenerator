@@ -52,6 +52,7 @@ public class SeparateAndConquerStrategy extends DiversityElitarismStrategy{
 
     private boolean convertToUnmatch = true;
     private boolean isFlagging = false;
+    private double dividePrecisionThreashold =1.0;
     
     @Override
     protected void readParameters(Configuration configuration) {
@@ -63,6 +64,9 @@ public class SeparateAndConquerStrategy extends DiversityElitarismStrategy{
             }
             if (parameters.containsKey("isFlagging")) {
                 isFlagging = Boolean.valueOf(parameters.get("isFlagging"));
+            }
+            if (parameters.containsKey("dividePrecisionThreashold")) {
+                dividePrecisionThreashold = Double.valueOf(parameters.get("dividePrecisionThreashold"));
             }
 
         }
@@ -140,9 +144,8 @@ public class SeparateAndConquerStrategy extends DiversityElitarismStrategy{
                 Map<String, Double> performancesMap = new HashMap<>();
                 PerformacesObjective.populatePerformancesMap(trainingPerformace, performancesMap);
 
-                double pr = performancesMap.get("match precision");
-                double re = performancesMap.get("match recall");
-
+                double pr = !isFlagging ? performancesMap.get("match precision") : performancesMap.get("flag precision");
+                
                 String newBestValue = best.getDescription();
                 if (newBestValue.equals(oldGenerationBestValue)) {
                     terminationCriteriaGenerationsCounter++;
@@ -151,7 +154,7 @@ public class SeparateAndConquerStrategy extends DiversityElitarismStrategy{
                 }
                 oldGenerationBestValue = newBestValue;
 
-                if (terminationCriteriaGenerationsCounter >= terminationCriteriaGenerations && pr == 1.0 && generation < (param.getGenerations() - 1)) {
+                if (terminationCriteriaGenerationsCounter >= terminationCriteriaGenerations && pr >= dividePrecisionThreashold && generation < (param.getGenerations() - 1)) {
                     terminationCriteriaGenerationsCounter = 0;
                     bests.add(rankings.get(0).getTree());
                     // remove matched matches
