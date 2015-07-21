@@ -38,6 +38,7 @@ import it.units.inginf.male.tree.Node;
 import it.units.inginf.male.tree.NodeFactory;
 import it.units.inginf.male.tree.RegexRange;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -80,16 +81,26 @@ public class Configuration {
             "\\}","\\{","\\(","\\)","\\[","\\]","<",">",
             "@","#"," "," ");
         this.ranges = new LinkedList<>();
-        this.operators = Arrays.asList("it.units.inginf.male.tree.operator.Group",
+        this.operators = new ArrayList<>(Arrays.asList("it.units.inginf.male.tree.operator.Group",
             "it.units.inginf.male.tree.operator.NonCapturingGroup",
             "it.units.inginf.male.tree.operator.ListMatch",
             "it.units.inginf.male.tree.operator.ListNotMatch",
             "it.units.inginf.male.tree.operator.MatchOneOrMore",
             "it.units.inginf.male.tree.operator.MatchZeroOrMore",
             "it.units.inginf.male.tree.operator.MatchZeroOrOne",
-            "it.units.inginf.male.tree.operator.MatchMinMax");
+            "it.units.inginf.male.tree.operator.MatchMinMax"));
+        //Add context wise operators (lookaround)
+        this.operators.addAll(
+                    Arrays.asList("it.units.inginf.male.tree.operator.PositiveLookbehind","it.units.inginf.male.tree.operator.NegativeLookbehind",
+                            "it.units.inginf.male.tree.operator.PositiveLookahead", "it.units.inginf.male.tree.operator.NegativeLookahead"));
+        
       
         this.initNodeFactory(); //initNodeFactory also instantiate the NodeFactory object, this decouples the terminalset between threads
+        List<Leaf> terminalSet = this.nodeFactory.getTerminalSet();
+        //Add default ranges
+        terminalSet.add(new RegexRange("A-Z"));
+        terminalSet.add(new RegexRange("a-z"));
+        terminalSet.add(new RegexRange("A-Za-z"));
         
         this.evaluator = new CachedTreeEvaluator();
         this.evaluator.setup(Collections.EMPTY_MAP);
@@ -100,7 +111,6 @@ public class Configuration {
         this.strategyParameters.put("runStrategy","it.units.inginf.male.strategy.impl.SeparateAndConquerStrategy");
         
         this.strategyParameters.put("runStrategy2","it.units.inginf.male.strategy.impl.DiversityElitarismStrategy");
-        //this.strategyParameters.put("terminationCriteria","true"); //this is already enabled in dto buildConifg
         
         this.strategyParameters.put("objective2","it.units.inginf.male.objective.CharmaskMatchLengthObjective");
         
@@ -108,6 +118,7 @@ public class Configuration {
         this.strategyParameters.put("threads","2");
         this.strategy = new CombinedMultithreadStrategy(); //MultithreadStrategy();
         
+        //TerminalSet and population builder setup is performed later
         this.terminalSetBuilderParameters = new HashMap<>();
         this.terminalSetBuilderParameters.put("tokenThreashold","80.0");
         this.terminalSetBuilder = new TokenizedContextTerminalSetBuilder();
@@ -160,6 +171,7 @@ public class Configuration {
         this.constants = cc.constants;
         this.ranges = cc.ranges;
         this.operators = cc.operators;
+        this.isFlagging = cc.isIsFlagging();
         this.initNodeFactory(); //initialized nodeFacory after introducing constants and operators
     }
     
@@ -188,6 +200,7 @@ public class Configuration {
     private List<String> operators;
     private transient BestSelector bestSelector;
     private Map<String, String> bestSelectorParameters;
+    private boolean  isFlagging = false;
 
     public NodeFactory getNodeFactory() {
         return nodeFactory;
@@ -353,10 +366,19 @@ public class Configuration {
 
     public void setBestSelector(BestSelector bestSelector) {
         this.bestSelector = bestSelector;
+        this.bestSelector.setup(Collections.EMPTY_MAP);
     }
     
     public Map<String, String> getBestSelectorParameters() {
         return bestSelectorParameters;
+    }
+
+    public boolean isIsFlagging() {
+        return isFlagging;
+    }
+
+    public void setIsFlagging(boolean isFlagging) {
+        this.isFlagging = isFlagging;
     }
 
     public void setBestSelectorParameters(Map<String, String> bestSelectorParameters) {

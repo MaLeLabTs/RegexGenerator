@@ -68,6 +68,7 @@ public class BasicExecutionListener implements ExecutionListener, ExecutionListe
     private final Results results;
     private final Configuration configuration;
     private BasicExecutionStatus status = new BasicExecutionStatus();
+    private final boolean isFlagging;
     
     
     public BasicExecutionListener(Configuration configuration, Results results, boolean callPostProcessorAutomatically) {
@@ -82,6 +83,7 @@ public class BasicExecutionListener implements ExecutionListener, ExecutionListe
         this.status.isSearchRunning = true;
         this.status.hasFinalResult = false;
         this.results = results;
+        this.isFlagging = configuration.isIsFlagging();
     }
 
     private boolean firstEvolution = true;
@@ -120,7 +122,7 @@ public class BasicExecutionListener implements ExecutionListener, ExecutionListe
         
         Objective trainingObjective = PerformancesFactory.buildObjective(Context.EvaluationPhases.TRAINING, strategy.getConfiguration());
         double[] trainingPerformace = trainingObjective.fitness(best);
-        PerformacesObjective.populatePerformancesMap(trainingPerformace, generationBestSolution.getTrainingPerformances());
+        PerformacesObjective.populatePerformancesMap(trainingPerformace, generationBestSolution.getTrainingPerformances(), isFlagging);
                        
         status.updateBest(generationBestSolution);
         
@@ -163,9 +165,9 @@ public class BasicExecutionListener implements ExecutionListener, ExecutionListe
                 double[] trainingPerformace = trainingObjective.fitness(individual.getTree());
                 double[] validationPerformance = validationObjective.fitness(individual.getTree());
                 double[] learningPerformance = learningObjective.fitness(individual.getTree());
-                PerformacesObjective.populatePerformancesMap(trainingPerformace, finalSolution.getTrainingPerformances());
-                PerformacesObjective.populatePerformancesMap(validationPerformance, finalSolution.getValidationPerformances());
-                PerformacesObjective.populatePerformancesMap(learningPerformance, finalSolution.getLearningPerformances());
+                PerformacesObjective.populatePerformancesMap(trainingPerformace, finalSolution.getTrainingPerformances(),isFlagging);
+                PerformacesObjective.populatePerformancesMap(validationPerformance, finalSolution.getValidationPerformances(),isFlagging);
+                PerformacesObjective.populatePerformancesMap(learningPerformance, finalSolution.getLearningPerformances(),isFlagging);
             }
             jobTrace.getFinalGeneration().add(finalSolution);
         }

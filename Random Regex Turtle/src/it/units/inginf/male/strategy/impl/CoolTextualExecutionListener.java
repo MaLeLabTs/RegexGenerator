@@ -77,6 +77,7 @@ public class CoolTextualExecutionListener implements ExecutionListener, Executio
     private FinalSolution best = null;
     private final Results results;
     private boolean isEvaluatorCached = false;
+    private final boolean isFlagging;
 
     public CoolTextualExecutionListener(String message, Configuration configuration, Results results) {
         this.header = ((message!=null)? message.concat("\n") : "") +"Output folder: " + configuration.getOutputFolder().getName();
@@ -86,6 +87,7 @@ public class CoolTextualExecutionListener implements ExecutionListener, Executio
         if (configuration.getEvaluator() instanceof CachedEvaluator) {
             this.isEvaluatorCached = true;
         }
+        this.isFlagging = configuration.isIsFlagging();
     }
 
     private synchronized void print() {
@@ -152,7 +154,7 @@ public class CoolTextualExecutionListener implements ExecutionListener, Executio
         //Only  the learning performance i needed by the checkBestCandidate
         Objective learningObjective = PerformancesFactory.buildObjective(Context.EvaluationPhases.LEARNING, strategy.getConfiguration());
         double[] learningPerformance = learningObjective.fitness(population.get(0).getTree());
-        PerformacesObjective.populatePerformancesMap(learningPerformance, generationBestSolution.getLearningPerformances());
+        PerformacesObjective.populatePerformancesMap(learningPerformance, generationBestSolution.getLearningPerformances(), isFlagging);
         //update best for visualization sake; uses the same algorithm as in BasicExecutionListener
         this.updateBest(generationBestSolution);
         
@@ -207,9 +209,9 @@ public class CoolTextualExecutionListener implements ExecutionListener, Executio
                 double[] trainingPerformace = trainingObjective.fitness(individual.getTree());
                 double[] validationPerformance = validationObjective.fitness(individual.getTree());
                 double[] learningPerformance = learningObjective.fitness(individual.getTree());
-                PerformacesObjective.populatePerformancesMap(trainingPerformace, finalSolution.getTrainingPerformances());
-                PerformacesObjective.populatePerformancesMap(validationPerformance, finalSolution.getValidationPerformances());
-                PerformacesObjective.populatePerformancesMap(learningPerformance, finalSolution.getLearningPerformances());
+                PerformacesObjective.populatePerformancesMap(trainingPerformace, finalSolution.getTrainingPerformances(), isFlagging);
+                PerformacesObjective.populatePerformancesMap(validationPerformance, finalSolution.getValidationPerformances(), isFlagging);
+                PerformacesObjective.populatePerformancesMap(learningPerformance, finalSolution.getLearningPerformances(), isFlagging);
             }
             jobTrace.getFinalGeneration().add(finalSolution);
         }

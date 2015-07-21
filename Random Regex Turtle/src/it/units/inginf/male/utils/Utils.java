@@ -163,7 +163,7 @@ public class Utils {
     }
 
     /**
-     * Returns a set with all n-grams; 1<n<4
+     * Returns a set with all n-grams; nMin<=n<=nMax
      * @param word
      * @return
      */

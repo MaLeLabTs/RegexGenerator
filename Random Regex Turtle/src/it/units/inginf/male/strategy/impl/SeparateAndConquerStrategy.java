@@ -142,7 +142,7 @@ public class SeparateAndConquerStrategy extends DiversityElitarismStrategy{
                 trainingObjective.setup(context);
                 double[] trainingPerformace = trainingObjective.fitness(best.getTree());
                 Map<String, Double> performancesMap = new HashMap<>();
-                PerformacesObjective.populatePerformancesMap(trainingPerformace, performancesMap);
+                PerformacesObjective.populatePerformancesMap(trainingPerformace, performancesMap, isFlagging);
 
                 double pr = !isFlagging ? performancesMap.get("match precision") : performancesMap.get("flag precision");
                 
