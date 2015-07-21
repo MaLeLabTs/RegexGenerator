@@ -209,7 +209,7 @@ public class ConsoleRegexTurtle {
             + "-x boolean, populates an extra field in results file, when 'true' adds all dataset examples in the results file 'examples' field, default is 'false'\n"
             + "-s boolean, when 'true' enables dataset striping, striping is an experimental feature, default is disabled: 'false'\n"
             + "-c adds an optional comment string\n"
-            + "-f enables the flagging mode, solves a flagging problem with a search and conquer strategy\n"
+            + "-f enables the flagging mode: solves a flagging problem with a separate-and-conquer strategy\n"
             + "-h visualizes this help message\n";
 
     static private void parseArgs(String[] args, SimpleConfig simpleConfig) {
