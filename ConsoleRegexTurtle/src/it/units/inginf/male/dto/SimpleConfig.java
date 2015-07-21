@@ -19,8 +19,16 @@ package it.units.inginf.male.dto;
 
 import it.units.inginf.male.configuration.Configuration;
 import it.units.inginf.male.configuration.DatasetContainer;
+import it.units.inginf.male.generations.EmptyPopulationBuilder;
+import it.units.inginf.male.generations.FlaggingNaivePopulationBuilder;
+import it.units.inginf.male.generations.TokenizedPopulationBuilder;
 import it.units.inginf.male.inputs.DataSet;
+import it.units.inginf.male.objective.FlaggingAccuracyPrecisionLengthObjective;
+import it.units.inginf.male.selections.best.BasicFlaggingLearningBestSelector;
 import it.units.inginf.male.strategy.impl.MultithreadStrategy;
+import it.units.inginf.male.terminalsets.FlaggingNgramsTerminalSetBuilder;
+import it.units.inginf.male.terminalsets.TokenizedTerminalSetBuilder;
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 
@@ -31,7 +39,6 @@ import java.util.logging.Logger;
 public class SimpleConfig {
     //Maximum unmatch_chars/match_chars ratio
     //and sets the maximum unmatch_chars/match_chars ratio; this value defines the margin size around the matches 
-    transient private final double STRIPING_THREASHOLD_CHAR_RATIO = 200;
     transient private final double STRIPING_DEFAULT_MARGIN_SIZE = 10;
     public int numberThreads;
     public int numberOfJobs;
@@ -40,6 +47,7 @@ public class SimpleConfig {
     public DataSet dataset;
     public boolean populateOptionalFields;
     public boolean isStriped = false;
+    public boolean isFlagging = false;
     
     transient public String datasetName;
     transient public String outputFolder;
@@ -52,19 +60,23 @@ public class SimpleConfig {
     public String comment;
     
     public Configuration buildConfiguration(){
+        assert !(isFlagging&&isStriped);
+        
+        //
         Configuration configuration = new Configuration();
         configuration.setConfigName("Console config");
         configuration.getEvolutionParameters().setGenerations(generations);
         configuration.getEvolutionParameters().setPopulationSize(populationSize);
         configuration.setJobs(numberOfJobs);
         configuration.getStrategyParameters().put(MultithreadStrategy.THREADS_KEY, String.valueOf(numberThreads));
+        
         int terminationGenerations = (int)(termination * configuration.getEvolutionParameters().getGenerations() / 100.0);
         if(termination==100.0){
             configuration.getStrategyParameters().put("terminationCriteria","false");  
         } else {
             configuration.getStrategyParameters().put("terminationCriteria","true");
         }
-            configuration.getStrategyParameters().put("terminationCriteriaGenerations", String.valueOf(terminationGenerations));
+        configuration.getStrategyParameters().put("terminationCriteriaGenerations", String.valueOf(terminationGenerations));
         //Added terminationCriteria for the second strategy
         configuration.getStrategyParameters().put("terminationCriteria2","false");
         
@@ -83,7 +95,27 @@ public class SimpleConfig {
             datasetContainer.setProposedNormalDatasetInterval(100);//terminationGenerations+50);
         }
         configuration.setDatasetContainer(datasetContainer); //remind that after setting the DataSetContainer.. we need to update configuration in order to invoke datacontainer update methods
-         
+        
+        //FLagging configuration
+        //is an alternative configuration, experimental, that requires changes into the configuration defaults (extractor configuration)
+        //Changes: bestSelector, fitness, terminalset builder configuration mod, population builders(?)
+        configuration.setIsFlagging(isFlagging);
+        if(this.isFlagging){
+            configuration.setStrategy(new MultithreadStrategy());
+            configuration.setBestSelector(new BasicFlaggingLearningBestSelector());
+            configuration.setObjective(new FlaggingAccuracyPrecisionLengthObjective());
+            configuration.setPopulationBuilder(new FlaggingNaivePopulationBuilder()); //disable context generation
+            configuration.setTerminalSetBuilder(new FlaggingNgramsTerminalSetBuilder()); //disable context generation 
+            //TODO change terminalSet to a more naive version?
+            configuration.getTerminalSetBuilderParameters().put("discardWtokens", "false");//Takes significant chars too
+            configuration.getStrategyParameters().put("isFlagging", "true"); //Enable strategy flagging
+            //Remove lookarounds
+            configuration.getOperators().removeAll(
+                    Arrays.asList("it.units.inginf.male.tree.operator.PositiveLookbehind","it.units.inginf.male.tree.operator.NegativeLookbehind",
+                            "it.units.inginf.male.tree.operator.PositiveLookahead", "it.units.inginf.male.tree.operator.NegativeLookahead"));
+        }
+        
+        
         
         configuration.setup(); //initializes datasetcontainer, populationbuilder and terminalsetbuilder
         
