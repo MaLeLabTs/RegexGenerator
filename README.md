@@ -43,21 +43,17 @@ RegexGenerator [wiki](https://github.com/MaLeLabTs/RegexGenerator/wiki) with ins
 
 (2) BibTeX format:
 
-    @article{bartoli2013automatic,
-      title={Automatic synthesis of regular expressions from examples},
-      author={Bartoli, Alberto and Davanzo, Giorgio and De Lorenzo, Andrea and 
-      Medvet, Eric and Sorio, Enrico},
-      year={2013},
-      publisher={IEEE}
-    }
-    @incollection{bartoli2015learning,
-      title={Learning Text Patterns Using Separate-and-Conquer Genetic Programming},
-      author={Bartoli, Alberto and De Lorenzo, Andrea and Medvet, Eric
-      and Tarlao, Fabiano},
-      booktitle={Genetic Programming},
-      pages={16--27},
-      year={2015},
-      publisher={Springer}
+    @article{bartoli2016inference, 
+	  author={A. Bartoli and A. De Lorenzo and E. Medvet and F. Tarlao}, 
+	  journal={IEEE Transactions on Knowledge and Data Engineering}, 
+	  title={Inference of Regular Expressions for Text Extraction from Examples}, 
+	  year={2016}, 
+	  volume={28}, 
+	  number={5}, 
+	  pages={1217-1230}, 
+	  doi={10.1109/TKDE.2016.2515587}, 
+	  ISSN={1041-4347}, 
+	  month={May},
     }
     @inproceedings{bartoli2015evolutionary,
       title={Evolutionary Learning of Syntax Patterns for Genic Interaction Extraction},
