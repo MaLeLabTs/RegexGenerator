@@ -13,6 +13,7 @@ RegexGenerator was developed at the [Machine Learning Lab, University of Trieste
 The provided engine is a developement release (1) that implements the algorithms published in our articles (2):
 
 * Bartoli, De Lorenzo, Medvet, Tarlao, Inference of Regular Expressions for Text Extraction from Examples, IEEE Transactions on Knowledge and Data Engineering, 2016
+* Bartoli, De Lorenzo, Medvet, Tarlao, Can a machine replace humans in building regular expressions? A case study, IEEE Intelligent Systems, 2016
 * Bartoli, De Lorenzo, Medvet, Tarlao, Virgolin, Evolutionary Learning of Syntax Patterns for Genic Interaction Extraction, ACM Genetic and Evolutionary Computation Conference (GECCO), 2015, Madrid (Spain)
 
 More details about the project can be found on [Machine Learning Lab news pages](http://machinelearning.inginf.units.it/news/newregexgeneratortoolonline).
@@ -62,5 +63,15 @@ RegexGenerator [wiki](https://github.com/MaLeLabTs/RegexGenerator/wiki) with ins
       pages={1183--1190},
       year={2015},
       organization={ACM}
+    }
+    @article{bartoli2016can,
+      title={Can a machine replace humans in building regular expressions? A case study},
+      author={Bartoli, Alberto and De Lorenzo, Andrea and Medvet, Eric and Tarlao, Fabiano},
+      journal={IEEE Intelligent Systems},
+      volume={31},
+      number={6},
+      pages={15--21},
+      year={2016},
+      publisher={IEEE}
     }
 
