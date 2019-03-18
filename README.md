@@ -33,7 +33,7 @@ The RegexGenerator project is organized in three NetBeans Java subprojects:
 
 ## Other Links
 
-Machine Learning Lab, [Twitter account](https://twitter.com/MaleLabTs)
+[Twitter account](https://twitter.com/MaleLabTs) of Machine Learning Lab
 
 RegexGenerator [wiki](https://github.com/MaLeLabTs/RegexGenerator/wiki) with installation walkthrough and guide
 
