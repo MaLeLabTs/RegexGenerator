@@ -20,7 +20,12 @@ import static org.junit.Assert.*;
  * @author MaleLabTs
  */
 public class DataSetTest {
-    
+
+    private DataSet dataSet = new DataSet("test", "striping test", "");
+    private final int MARGIN_SIZE = 2;
+    private DataSet stripedDataset = dataSet.initStripedDatasetView(MARGIN_SIZE);
+    private Example example;
+
     public DataSetTest() {
     }
     
@@ -40,15 +45,36 @@ public class DataSetTest {
     public void tearDown() {
     }
 
-    
+    public void loopContentTest(Example stripedExample, String expected, String actual) {
+        stripedExample.populateAnnotatedStrings();
+        assertEquals(expected, actual);
+        for(String matchString : stripedExample.getMatchedStrings()){
+            assertEquals("PROVA", matchString);
+        }
+    }
+
+    public void init(boolean flag) {
+        for (Example stripedExample : stripedDataset.getExamples()) {
+            String expected = String.valueOf("PROVA".length()*(MARGIN_SIZE+1));
+            String actual = String.valueOf(stripedExample.getString().length());
+            if (flag) {
+                expected = example.getString();
+                actual = stripedExample.getString();
+            }
+            loopContentTest(stripedExample, expected, actual);
+            if (flag) {
+                assertArrayEquals(example.getMatch().toArray(), stripedExample.getMatch().toArray());
+            }
+        }
+    }
 
     /**
      * Test of initStripedDatasetView method, of class DataSet.
      */
     @Test
     public void testInitStripedDatasetView() {
-        DataSet dataSet = new DataSet("test", "striping test", "");
-        Example example = new Example();
+
+        example = new Example();
         example.setString("123456789123456789PROVA123456789123456789 123456789123456789123456789123456789PROVA123456789123456789");
         int provaIndex1 = example.getString().indexOf("PROVA");
         int provaIndex2 = example.getString().indexOf("PROVA", provaIndex1+2);
@@ -57,31 +83,15 @@ public class DataSetTest {
         dataSet.getExamples().add(example);
         dataSet.updateStats();
         int marginSize = 2;
-        DataSet stripedDataset = dataSet.initStripedDatasetView(marginSize);
         int expExperimentsNumber = 2;
         assertEquals(expExperimentsNumber, stripedDataset.getNumberExamples());
-        for(Example stripedExample : stripedDataset.getExamples()){
-            stripedExample.populateAnnotatedStrings();
-            assertEquals("PROVA".length()*(marginSize+1), stripedExample.getString().length());
-            for(String matchString : stripedExample.getMatchedStrings()){
-                assertEquals("PROVA", matchString);
-            }
-        }
-        
+        init(false);
         //Test the boundires merge operation
         marginSize = 20;
         stripedDataset = dataSet.initStripedDatasetView(marginSize);
         expExperimentsNumber = 1;
         assertEquals(expExperimentsNumber, stripedDataset.getNumberExamples());
-        for(Example stripedExample : stripedDataset.getExamples()){
-            stripedExample.populateAnnotatedStrings();
-            //Example should be unaltered
-            assertEquals(example.getString(), stripedExample.getString());
-            for(String matchString : stripedExample.getMatchedStrings()){
-                assertEquals("PROVA", matchString);
-            }
-            assertArrayEquals(example.getMatch().toArray(), stripedExample.getMatch().toArray());
-        }
+        init(true);
     }
 
       
